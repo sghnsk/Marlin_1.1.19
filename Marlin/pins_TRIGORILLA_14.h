@@ -48,6 +48,43 @@
 #undef E1_ENABLE_PIN
 #undef E1_CS_PIN
 
+// Servos
+// src: https://github.com/MNieddu91/Marlin-AI3M-BLTouch/blob/master/Marlin/pins_TRIGORILLA_14.h
+#if TRIGORILLA_VERSION == 0 // Default Trigorilla
+  #ifdef NUM_SERVOS
+  	#define SERVO0_PIN      11
+
+  	#if NUM_SERVOS > 1
+  		#define SERVO1_PIN    6
+  	#endif
+
+  	#if NUM_SERVOS > 2
+  		#define SERVO2_PIN    5
+  	#endif
+
+  	#if NUM_SERVOS > 3
+  		#define SERVO3_PIN    4
+  	#endif
+  #endif
+#else // Trigorilla 1.1
+  #ifdef NUM_SERVOS
+    #define SERVO0_PIN 5
+
+    #if NUM_SERVOS > 1
+      #define SERVO1_PIN 4
+    #endif
+
+    #if NUM_SERVOS > 2
+      #define SERVO2_PIN 11
+    #endif
+
+    #if NUM_SERVOS > 3
+      #define SERVO3_PIN 6
+    #endif
+  #endif
+#endif // #if TRIGORILLA_VERSION
+
+
 //
 // AnyCubic made the following changes to 1.1.0-RC8
 // If these are appropriate for your LCD let us know.
